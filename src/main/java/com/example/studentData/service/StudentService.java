@@ -13,34 +13,29 @@ public class StudentService {
 
     @Autowired
     StudentRepository studentRepository;
-    public StudentEntity createstudentdata(StudentEntity studentEntity)
-    {
+
+    public StudentEntity createstudentdata(StudentEntity studentEntity) {
         return studentRepository.save(studentEntity);
     }
 
-    public  List<StudentEntity> createallstudentdata( List <StudentEntity> studentEntity)
-    {
-        ArrayList<StudentEntity> studentEntitylist=new ArrayList<>();
-        for (StudentEntity s :studentEntity)
-             {
-                StudentEntity se=studentRepository.save(s);
-                studentEntitylist.add(se);
-        }
-        return studentEntitylist;
+    public List<StudentEntity> createallstudentdata(List<StudentEntity> studentEntity) {
+        return studentRepository.saveAll(studentEntity);
 
     }
 
-    public List< StudentEntity > getstudentsdata()
-    {
+    public List<StudentEntity> getstudentsdata() {
         return studentRepository.findAll();
     }
-    public StudentEntity getstudentdatabyid(Long stdId){
-        return  studentRepository.findById(stdId).orElse(null);
+
+    public StudentEntity getstudentdatabyid(Long stdId) {
+        return studentRepository.findById(stdId).orElse(null);
     }
-    public void deletestudentdatabyid(Long stdId){
+
+    public void deletestudentdatabyid(Long stdId) {
         studentRepository.deleteById(stdId);
 
     }
+
     public StudentEntity updatestudentdata(Long stdId, StudentEntity updatestudentdata) {
         StudentEntity studentEntity1 = getstudentdatabyid(stdId);
         if (studentEntity1 != null) {
@@ -50,7 +45,5 @@ public class StudentService {
         }
         return null;
     }
-
-
 
 }

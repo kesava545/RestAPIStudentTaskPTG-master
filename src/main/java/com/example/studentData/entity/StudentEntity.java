@@ -4,13 +4,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class StudentEntity
-{
+public class StudentEntity {
     @Id
-    private  long stdId;
+    private long stdId;
 
-    public StudentEntity()
-    {
+    public StudentEntity() {
     }
 
     public StudentEntity(long stdId, String stdName, String stdAddress) {
@@ -44,14 +42,15 @@ public class StudentEntity
         this.stdAddress = stdAddress;
     }
 
-    public  long getStdId()
-    {
+    public long getStdId() {
         return stdId;
     }
-    public  void setStdId(int stdId){
-        this.stdId=stdId;
+
+    public void setStdId(int stdId) {
+        this.stdId = stdId;
     }
-    private  String stdName;
-    private  String stdAddress;
+
+    private String stdName;
+    private String stdAddress;
 
 }
